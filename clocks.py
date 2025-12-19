@@ -11,6 +11,8 @@ import threading
 from datetime import datetime
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+# Enter in the terminal: pip install tzdata
+
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 

@@ -1,4 +1,4 @@
-# Pythona
+# Python cache
 __pycache__/
 *.pyc
 *.pyo
@@ -9,5 +9,11 @@ __pycache__/
 
 # Asset files
 /images/
-/audio/
+audio/
 
+# Ignore ALL .txt files inside wordlists/, but NOT words.txt
+wordlists/*
+!wordlists/.gitkeep
+
+# Allow words.txt (default list)
+!words.txt

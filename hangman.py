@@ -94,16 +94,31 @@ class HangmanGame:
         return self.wrong_guesses >= self.max_attempts
     
     def play(self):
+        while True:
+            
+            self.reset_game()
+            self.run_single_game()
+
+            choice = input("\nPlay again (y/n): ").strip().lower()
+            if choice != "y":
+                break
+
+    def reset_game(self):
+        self.secret_word = random.choice(self.word_list)
+        self.guessed_letters = set()
+        self.wrong_guesses = 0
+
+    def run_single_game(self):
         print("\nStarting Hangman!\n")
 
         while not self.is_won() and not self.is_lost():
             self.display_board()
-            guess = input("Enter a letter: ").strip().lower()
+            guess = input("Enter a letter: ".strip().lower())
 
             result = self.guess_letter(guess)
 
             if result == "invalid":
-                print("Please enter a single letter.")
+                print("Pleae enter a single letter.")
             elif result == "repeat":
                 print("You already guessed that letter.")
             elif result == "correct!":
@@ -119,6 +134,14 @@ class HangmanGame:
             print("🎉 You won!")
         else:
             print(f"💀 You lost! The word was: {self.secret_word}")
+
+
+
+
+
+
+
+
 
 # Main game loop
 

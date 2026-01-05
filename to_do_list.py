@@ -40,7 +40,7 @@ todo_list = []
 
 def show_menu():
     print("\n--- TO-DO LIST MENU ---")
-    print("1. View TO-Dos")  # Option to show all tasks
+    print("1. View To-Dos")  # Option to show all tasks
     print("2. Add To-Do")    # Option to add a new task
     print("3. Remove To-Do") # Option to delete a task
     print("4. Mark Task as Completed")  # Option to mark task as completed
@@ -86,9 +86,9 @@ def remove_todo():
             # User enters the number of the task to remove
             num = int(input("\nEnter the number to remove: "))
 
-            # pop(num - ) removes the correct item (lists start at 0)
+            # pop(num - 1) removes the correct item (lists start at 0)
             removed = todo_list.pop(num - 1)
-            print(f"Removed: {removed}")  # Confirms removal
+            print(f"Removed: {removed}['task]")  # Confirms removal
 
         except (ValueError, IndexError):
             # ValueError = user typed letters instead of numbers

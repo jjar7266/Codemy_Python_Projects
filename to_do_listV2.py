@@ -103,7 +103,7 @@ def mark_completed(tasks):
             num = int(input("\nEnter the number to mark as completed: "))
 
             # Change the "completed" value to True
-            tasks[num -1]["completed"] = True
+            tasks[num - 1]["completed"] = True
 
             # Confirm the action
             print(f"Marked as completed: {tasks[num - 1]['task']}")

@@ -45,7 +45,7 @@ class WordCounter:
     def count_chars_without_spaces(self) -> int:
         # Remove spaces first, then count the remaining characters
 
-        return len(self.text.replace(" ", ""))
+        return len(self.text.replace(" ", ""))  # (remove, replace with)
     
 
 # FUNCTION: main()

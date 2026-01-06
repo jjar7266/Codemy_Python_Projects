@@ -8,7 +8,7 @@
 
 """ This is a simple command-line To-DO application.
 It lets the user view tasks, add tasks, remove tasks,
-and quit the program.
+mark tasks, and quit the program.
 """
 
 import os  # needed to clear the terminal screen
@@ -125,7 +125,6 @@ def mark_completed(tasks):
 def main():
     tasks = []  # Local list - NOT global
 
-
     while True:
         clear_screen()  # Clears screen before showing menu
         show_menu()  # Display menu options
@@ -134,19 +133,19 @@ def main():
 
         if choice == "1":
             view_todos(tasks)   # Show tasks
-            pause()
+            pause()  # Pauses the program so the user can read the output.
 
         elif choice == "2":
             add_todo(tasks)     # Add a task
-            pause()
+            pause()  # Pauses the program so the user can read the output.
 
         elif choice == "3":
             remove_todo(tasks)  # Remove a task
-            pause()
+            pause()  # Pauses the program so the user can read the output.
 
         elif choice == "4":
             mark_completed(tasks)
-            pause()
+            pause()  # Pauses the program so the user can read the output.
 
         elif choice == "5":
             print("Goodbye!")  # Exit message
@@ -154,7 +153,7 @@ def main():
 
         else:
             print("Invalid choice. Try again.")  # Handles bad input 
-            pause()
+            pause()  # Pauses the program so the user can read the output.
 
 
 # Standard Python entry point

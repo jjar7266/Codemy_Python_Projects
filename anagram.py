@@ -38,7 +38,9 @@ def clear_screen():
 
 # -----------------------------------------------------------------------
 # Helper Function: pause()
+
 # Purpose:
+
 #  - Pauses the program until the user presses Enter
 #  - Gives the user time to read output before the screen clears
 # ------------------------------------------------------------------------
@@ -57,7 +59,7 @@ def pause():
 # ------------------------------------------------------------------------
 
 # Helper Function: load_words_from_json()
-#
+
 # Purpose:
 #
 #  - Open the JSON dictionary file (words_dictionary.json)
@@ -121,7 +123,7 @@ def load_words_from_json(filename):
 # -----------------------------------------------------------------------
 
 # Helper Function: build_anagram_base()
-#
+
 # Purpose:
 #
 #  - Take a list of words (loaded from the JSON dictionary)
@@ -186,7 +188,7 @@ def build_anagram_base(word_list):
 # -----------------------------------------------------------------------
 
 # Helper Function: find_anagrams()
-#
+
 # Purpose:
 #
 #  - Take a user-entered word
@@ -226,7 +228,7 @@ def find_anagrams(user_word, anagram_base):
 # -----------------------------------------------------------------------
 #
 # Helper Function: show_menu()
-#
+
 # Purpose:
 #   - Display the main menu options to the user
 #   - Keeps the UI clean and consistent
@@ -249,7 +251,7 @@ def show_menu():
     # -------------------------------------------------------------------
 
 # main()
-#
+
 # Purpose:
 # 
 #  - Load the dictionary file

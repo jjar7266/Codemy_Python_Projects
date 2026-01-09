@@ -133,8 +133,18 @@ def main():
 
     output_path = clean_path(input("Enter the output path for the resized image: "))
 
-    if not output_path.lower().endswith(('.jpg', '.png', '.png', '.gif')):
-        output_path += '.jpg'  # Default to JPEG
+    # Detect if the user dragged in a folder
+
+    if os.path.isdir(output_path):
+        # Save inside the folder with a default filename
+
+        output_path = os.path.join(output_path, "resized.jpg")
+        print(f"Folder detected. Saving as : {output_path}")
+
+    # Otherwise, if no extension was provided, default to .jpg
+
+    elif not os.path.splitext(output_path)[1]:
+        output_path += ".jpg"
         print(f"No extension detected. Saving as: {output_path}")
 
     # 7. Save the resized image

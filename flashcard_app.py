@@ -6,6 +6,8 @@
 
 # project build date: Jan 10, 2026
 
+# Code written by Jose "Joe" Ruiz
+
 # Modified instructors code to be more Pythonic and readable
  
 # Import modules
@@ -154,6 +156,151 @@ def run_addition():
         again = input("Try another: (y/n): ").strip().lower()
         if again != "y":
             break  # Exit session and return to menu
+
+# =======================================================================
+
+# FUNCTION: run_subtraction()
+
+# PURPOSE: Handles the entire Subtraction flashcard session
+
+# DETAILS: Generates random subtraction problems, ensures the result
+
+#          is never negative, checks answers, and loops until the 
+
+#          user chooses to return to the menu.
+
+# ========================================================================
+
+def run_subtraction():
+    while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        # --------------------------------------------------------------
+
+        # [STEP 1] Generate two random numbers (1-20)
+
+        #          Ensure subtraction never goes negative
+
+        # ---------------------------------------------------------------
+
+        num1 = random.randint(1, 20)
+        num2 = random.randint(1, 20)
+
+        # Ensure num1 is the Larger number
+
+        if num2 > num1:
+            num1, num2 = num2, num1
+
+        correct_answer = num1 - num2
+
+        # ---------------------------------------------------------------
+
+        # [STEP 2] Display the problem
+
+        # ----------------------------------------------------------------
+
+        print(f"\nWhat is {num1} - {num2}?")
+
+        # ----------------------------------------------------------------
+
+        # [STEP 3] Get user input
+
+        # -----------------------------------------------------------------
+
+        user_input = input("Your answer (or 'm' for menu): ").strip()
+
+        # Allow returning to menu
+
+        if user_input.lower() == "m":
+            break
+
+        # ------------------------------------------------------------------
+
+        # [STEP 4] Validate numeric input
+
+        # -------------------------------------------------------------------
+
+        if not user_input.isdigit():
+            print("Please enter a valid number.")
+            continue
+
+        user_answer = int(user_input)
+
+        # ------------------------------------------------------------------
+
+        # [STEP 5] Check correctness
+
+        # ------------------------------------------------------------------
+
+        if user_answer == correct_answer:
+            print("Correct!")
+        else:
+            print(f"Incorrect. The correct answer is {correct_answer}.")
+
+        # ------------------------------------------------------------------
+
+        # [STEP 6] Ask if user wants another problem 
+
+        # ------------------------------------------------------------------
+
+        again = input("Try another: (y/n): ").strip().lower()
+        if again != "y":
+            break
+
+
+
+
+
+# FUNCTION: main()
+
+# PURPOSE: Controls the overall flow
+
+# DETAILS: Show the menu, gets user choice, and calls the 
+
+#          appropriate flashcard module. Loops until user quits.
+
+# ========================================================================
+
+def main():
+    while True:  # [APP LOOP] Runs until user chooses to quit
+
+        show_menu()  # Display menu options
+
+        choice = get_menu_choice()  # Get validated user input
+
+        # --------------------------------------------------------------
+
+        # [ROUTING] Call the correct module based on user choice
+
+        # --------------------------------------------------------------
+
+        if choice == "1":
+            run_addition()
+            input("\nReturning to main menu... Press Enter to continue.")
+
+        elif choice == "2":
+            run_subtraction()
+            input("\nPress Enter to return to menu.")
+
+        elif choice == "3":
+            print("Multiplication module coming soon!")
+            input("\nPress Enter to return to menu.")
+
+        elif choice == "4":
+            print("Division module coming soon!")
+            input("\nPress Enter to return to menu.")
+
+        elif choice == "5":
+            print("\nGoodbye!")
+            break  # Exit the program
+
+
+
+if __name__ == "__main__":
+    main()
+
+
+
+
 
 
 

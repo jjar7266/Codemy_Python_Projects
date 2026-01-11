@@ -246,6 +246,86 @@ def run_subtraction():
         if again != "y":
             break
 
+# ======================================================================
+
+# FUNCTION: run_multiplication()
+
+# PURPOSE: Handles the entire Multiplication flashcard session
+
+# DETAILS: Generates random multiplication problems (1-12), checks
+
+#          answers, and loops until the user chooses to return to menu.
+
+# ========================================================================
+
+def run_multiplication():
+    while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        # --------------------------------------------------------------
+
+        # [STEP 1] Generate two random numbers (1-12)
+
+        # ---------------------------------------------------------------
+
+        num1 = random.randint(1, 12)
+        num2 = random.randint(1, 12)
+        correct_answer = num1 * num2
+
+        # --------------------------------------------------------------
+
+        # [STEP 2] Display the problem
+
+        # ---------------------------------------------------------------
+
+        print(f"\nWhat is {num1} x {num2}?")
+
+        # ----------------------------------------------------------------
+
+        # [STEP 3] Get user input
+
+        # -----------------------------------------------------------------
+
+        user_input = input("Your answer (or 'm' for menu): ").strip()
+
+        # Allow returning to menu
+
+        if user_input.lower() == "m":
+            break
+
+        # ------------------------------------------------------------------
+
+        # [STEP 4] Validate numeric input
+
+        # -------------------------------------------------------------------
+
+        if not user_input.isdigit():
+            print("Please enter a valid number.")
+            continue
+
+        user_answer = int(user_input)
+
+        # --------------------------------------------------------------
+
+        # [STEP 5] Check correctness
+
+        # ---------------------------------------------------------------
+
+        if user_answer == correct_answer:
+            print("Correct!")
+        else:
+            print(f"Incorrect. The correct answer is {correct_answer}.")
+
+        # -----------------------------------------------------------------
+
+        # [STEP 6] Ask if user wants another problem
+
+        # ------------------------------------------------------------------
+
+        again = input("Try another: (y/n): ").strip().lower()
+        if again != "y":
+            break
+
+
 
 
 
@@ -282,7 +362,7 @@ def main():
             input("\nPress Enter to return to menu.")
 
         elif choice == "3":
-            print("Multiplication module coming soon!")
+            run_multiplication()
             input("\nPress Enter to return to menu.")
 
         elif choice == "4":

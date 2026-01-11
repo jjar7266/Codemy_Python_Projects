@@ -325,10 +325,90 @@ def run_multiplication():
         if again != "y":
             break
 
+# =======================================================================
 
+# FUNCTION: run_division()
 
+# PURPOSE: Handles the entire Division flashcard session
 
+# DETAILS: Generates clean divsion problems that always divide evenly.
 
+#          Uses the pattern: answer * divisor = dividend.
+
+#          Loops until the user chooses to return to the menu.
+
+# ======================================================================
+
+def run_division():
+    while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        # ---------------------------------------------------------------
+
+        # [STEP 1] Generate a clean division problem
+
+        #          Pick the correct answer first (1-12)
+
+        #          Pick a divisor (1-12)
+
+        #          Multiply to get the dividend
+
+        # ----------------------------------------------------------------
+
+        correct_answer = random.randint(1, 12)
+        num2 = random.randint(1, 12)
+        num1 = correct_answer * num2  # Ensures clean division
+
+        # -----------------------------------------------------------------
+
+        print(f"\nWhat is {num1} / {num2}?")
+
+        # -----------------------------------------------------------------
+
+        # [STEP 3] Get user input
+
+        # ------------------------------------------------------------------
+
+        user_input = input("Your answer (or 'm' for menu): ").strip()
+
+        # Allow returning to menu
+
+        if user_input.lower() == "m":
+            break
+
+        # ------------------------------------------------------------------
+
+        # [STEP 4] Validate numeric input
+
+        # ------------------------------------------------------------------
+
+        if not user_input.isdigit():
+            print("Please enter a valid number.")
+            continue
+
+        user_answer = int(user_input)
+
+        # ------------------------------------------------------------------
+
+        # [STEP 5] Check correctness
+
+        # ------------------------------------------------------------------
+
+        if user_answer == correct_answer:
+            print("Correct!")
+        else:
+            print("Incorrect. The correct answer is {correct_answer}.")
+
+        # -------------------------------------------------------------------
+
+        # [STEP 6] Ask if user wants another problem
+
+        # ---------------------------------------------------------------
+
+        again = input("Try another: (y/n): ").strip().lower()
+        if again != "y":
+            break
+
+# =======================================================================
 
 # FUNCTION: main()
 
@@ -366,7 +446,7 @@ def main():
             input("\nPress Enter to return to menu.")
 
         elif choice == "4":
-            print("Division module coming soon!")
+            run_division()
             input("\nPress Enter to return to menu.")
 
         elif choice == "5":

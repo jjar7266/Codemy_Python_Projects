@@ -90,5 +90,3 @@ while True:
         break
 
     clear_screen()  # Clean screen before starting a new game
-
-

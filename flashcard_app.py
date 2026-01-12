@@ -31,6 +31,25 @@ def clear_screen():
 
 # ================================================================
 
+# FUNCTION: pause_and_clear()
+
+# PURPOSE: Pauses the program so the user can read feedback,
+
+#          then clears the terminal for the next flashcard.
+
+# DETAILS: Uses input() to wait for Enter, then calls clear_screen()
+
+#          to reset the UI before the next question appears.
+
+# ===================================================================
+
+def pause_and_clear():
+    input("\nPress Enter to continue...")
+
+    clear_screen()
+
+# ===================================================================
+
 # FUNCTION: show_menu()
 
 # PURPOSE:  Displays the main menu options to the user
@@ -93,6 +112,8 @@ def get_menu_choice():
 def run_addition():
     while True:  # [SESSION LOOP] Keeps giving problems until user exits
 
+        clear_screen()  # Clean screen before showing the flashboard
+
         # ==============================================================
 
         # [STEP 1] Generate two random numbers for the addition problem
@@ -109,7 +130,7 @@ def run_addition():
 
         # ===============================================================
 
-        print(f"\nWhat is {num1} + {num2}?")
+        print(f"\nFLASHCARD: What is {num1} + {num2}?")
 
         # ==============================================================
 
@@ -126,12 +147,18 @@ def run_addition():
 
         # ===============================================================
 
-        # [STEP 4] Validate numeric input
+        # [STEP 4] Check for empty input and Validate numeric input
 
         # ===============================================================
 
-        if not user_input.isdigit():
+        if user_input == "":  # Empty input check
+            print("Please enter a number.")
+            pause_and_clear()
+            continue
+
+        if not user_input.isdigit():  # Non-numeric input check
             print("Please enter a valid number.")
+            pause_and_clear()
             continue  # Restart loop with a new problem
 
         user_answer = int(user_input)
@@ -157,6 +184,8 @@ def run_addition():
         if again != "y":
             break  # Exit session and return to menu
 
+        pause_and_clear()  # Pause -> clear -> next flashcard
+
 # =======================================================================
 
 # FUNCTION: run_subtraction()
@@ -173,6 +202,8 @@ def run_addition():
 
 def run_subtraction():
     while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        clear_screen()  # Clean screen before showing the flashboard
 
         # --------------------------------------------------------------
 
@@ -198,7 +229,7 @@ def run_subtraction():
 
         # ----------------------------------------------------------------
 
-        print(f"\nWhat is {num1} - {num2}?")
+        print(f"\nFLASHCARD: What is {num1} - {num2}?")
 
         # ----------------------------------------------------------------
 
@@ -215,12 +246,18 @@ def run_subtraction():
 
         # ------------------------------------------------------------------
 
-        # [STEP 4] Validate numeric input
+        # [STEP 4] Check for empty input and Validate numeric input
 
         # -------------------------------------------------------------------
 
-        if not user_input.isdigit():
+        if user_input == "":  # Empty input check
+            print("Please enter a number.")
+            pause_and_clear()
+            continue
+
+        if not user_input.isdigit():  # Non-numeric input check
             print("Please enter a valid number.")
+            pause_and_clear()
             continue
 
         user_answer = int(user_input)
@@ -246,6 +283,8 @@ def run_subtraction():
         if again != "y":
             break
 
+        pause_and_clear()
+
 # ======================================================================
 
 # FUNCTION: run_multiplication()
@@ -260,6 +299,8 @@ def run_subtraction():
 
 def run_multiplication():
     while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        clear_screen()  # Clean screen before showing the flashcard
 
         # --------------------------------------------------------------
 
@@ -277,7 +318,7 @@ def run_multiplication():
 
         # ---------------------------------------------------------------
 
-        print(f"\nWhat is {num1} x {num2}?")
+        print(f"\nFLASHCARD: What is {num1} x {num2}?")
 
         # ----------------------------------------------------------------
 
@@ -294,12 +335,18 @@ def run_multiplication():
 
         # ------------------------------------------------------------------
 
-        # [STEP 4] Validate numeric input
+        # [STEP 4] Check for empty input and Validate numeric input
 
         # -------------------------------------------------------------------
 
-        if not user_input.isdigit():
+        if user_input == "":  # Empty input check
+            print("Please enter a number.")
+            pause_and_clear()
+            continue
+
+        if not user_input.isdigit():  # Non-numeric input check
             print("Please enter a valid number.")
+            pause_and_clear()
             continue
 
         user_answer = int(user_input)
@@ -325,6 +372,8 @@ def run_multiplication():
         if again != "y":
             break
 
+        pause_and_clear()
+
 # =======================================================================
 
 # FUNCTION: run_division()
@@ -341,6 +390,8 @@ def run_multiplication():
 
 def run_division():
     while True:  # [SESSION LOOP] Keeps giving problems until user exits
+
+        clear_screen()  # Clean screen before showing the flashcard
 
         # ---------------------------------------------------------------
 
@@ -360,7 +411,7 @@ def run_division():
 
         # -----------------------------------------------------------------
 
-        print(f"\nWhat is {num1} / {num2}?")
+        print(f"\nFLASHCARD: What is {num1} / {num2}?")
 
         # -----------------------------------------------------------------
 
@@ -377,12 +428,18 @@ def run_division():
 
         # ------------------------------------------------------------------
 
-        # [STEP 4] Validate numeric input
+        # [STEP 4] Check for empty input and Validate numeric input
 
         # ------------------------------------------------------------------
 
-        if not user_input.isdigit():
+        if user_input == "":  # Empty input check
+            print("Please enter a number.")
+            pause_and_clear()
+            continue
+
+        if not user_input.isdigit():  # Non-numeric input check
             print("Please enter a valid number.")
+            pause_and_clear()
             continue
 
         user_answer = int(user_input)
@@ -396,7 +453,7 @@ def run_division():
         if user_answer == correct_answer:
             print("Correct!")
         else:
-            print("Incorrect. The correct answer is {correct_answer}.")
+            print(f"Incorrect. The correct answer is {correct_answer}.")
 
         # -------------------------------------------------------------------
 
@@ -407,6 +464,8 @@ def run_division():
         again = input("Try another: (y/n): ").strip().lower()
         if again != "y":
             break
+
+        pause_and_clear()
 
 # =======================================================================
 
